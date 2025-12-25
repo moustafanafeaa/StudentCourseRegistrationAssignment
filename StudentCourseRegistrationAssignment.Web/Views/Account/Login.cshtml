@@ -1,0 +1,45 @@
+﻿@using StudentCourseRegistrationAssignment.Web.Resources
+@model StudentCourseRegistrationAssignment.BLL.ViewModels.LoginViewModel
+@inject Microsoft.Extensions.Localization.IStringLocalizer<SharedResource> Localizer
+
+
+@{
+    ViewData["Title"] = Localizer["Login"];
+}
+
+<div class="auth-card mx-auto p-4 shadow rounded" style="max-width: 400px; background-color: #f8f9fa;">
+    <h3 class="text-center mb-4">@Localizer["Login"]</h3>
+
+    <form asp-action="Login" method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger mb-2"></div>
+
+        <div class="mb-3">
+            <label asp-for="UserName" class="form-label">@Localizer["Username"]</label>
+            <input asp-for="UserName" class="form-control" placeholder="@Localizer["Username"]" />
+            <span asp-validation-for="UserName" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Password" class="form-label">@Localizer["Password"]</label>
+            <input asp-for="Password" type="password" class="form-control" placeholder="@Localizer["Password"]" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+
+        <div class="form-check mb-3">
+            <input asp-for="RememberMe" class="form-check-input" />
+            <label asp-for="RememberMe" class="form-check-label">@Localizer["RememberMe"]</label>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100 mb-3">@Localizer["Login"]</button>
+
+        <div class="text-center">
+            <a asp-action="ForgetPassword" class="text-decoration-none">@Localizer["ForgotPassword"]</a>
+            <br />
+            <a asp-action="Register" class="text-decoration-none">@Localizer["Register"]</a>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,92 @@
+﻿@using StudentCourseRegistrationAssignment.Web.Resources
+@model StudentCourseRegistrationAssignment.BLL.ViewModels.RegisterViewModel
+@inject Microsoft.Extensions.Localization.IStringLocalizer<SharedResource> Localizer
+
+@{
+    ViewData["Title"] = Localizer["RegisterTitle"];
+}
+
+<div class="auth-card mx-auto p-5 shadow rounded" style="max-width: 450px; background-color: #fff;">
+    <h3 class="text-center mb-4">@Localizer["RegisterTitle"]</h3>
+
+    <form asp-action="Register" method="post">
+
+        <div asp-validation-summary="All" class="text-danger mb-3"></div>
+
+        <div class="mb-3">
+            <label asp-for="FullName" class="form-label">@Localizer["FullName"]</label>
+            <input asp-for="FullName" class="form-control" placeholder="@Localizer["FullName"]" />
+            <span asp-validation-for="FullName" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="UserName" class="form-label">@Localizer["Username"]</label>
+            <input asp-for="UserName" class="form-control" placeholder="@Localizer["Username"]" />
+            <span asp-validation-for="UserName" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Email" class="form-label">@Localizer["Email"]</label>
+            <input asp-for="Email" class="form-control" placeholder="@Localizer["Email"]" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="PhoneNumber" class="form-label">@Localizer["Phone"]</label>
+            <input asp-for="PhoneNumber" class="form-control" placeholder="@Localizer["Phone"]" />
+            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="AcademicYear" class="form-label">@Localizer["AcademicYear"]</label>
+            <input asp-for="AcademicYear" class="form-control" placeholder="@Localizer["AcademicYear"]" />
+            <span asp-validation-for="AcademicYear" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Password" class="form-label">@Localizer["Password"]</label>
+            <input asp-for="Password" type="password" class="form-control" placeholder="@Localizer["Password"]" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="ConfirmPassword" class="form-label">@Localizer["ConfirmPassword"]</label>
+            <input asp-for="ConfirmPassword" type="password" class="form-control" placeholder="@Localizer["ConfirmPassword"]" />
+            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+        </div>
+
+        <button class="btn btn-success w-100 py-2">@Localizer["Register"]</button>
+
+        <div class="text-center mt-3">
+            <a asp-action="Login" class="text-decoration-none">@Localizer["BackToLogin"]</a>
+        </div>
+    </form>
+</div>
+
+<style>
+    .auth-card {
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        padding: 30px;
+    }
+
+        .auth-card h3 {
+            font-weight: 600;
+            color: #333;
+        }
+
+    .form-control {
+        border-radius: 8px;
+    }
+
+    .btn-success {
+        font-weight: 500;
+        font-size: 16px;
+    }
+</style>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+

@@ -1,0 +1,21 @@
+﻿@using StudentCourseRegistrationAssignment.Web.Resources
+@inject Microsoft.Extensions.Localization.IStringLocalizer<SharedResource> Localizer
+@{
+    ViewData["Title"] = Localizer["EmailConfirmed"];
+    var currentCulture = ViewData["CurrentCulture"]?.ToString() ?? "en";
+}
+
+<div class="auth-card text-center">
+    <h4>@Localizer["EmailConfirmed"] ✅</h4>
+    <p>@Localizer["YouCanNowLogin"]</p>
+
+ @*    <form method="post" asp-controller="Account" asp-action="ChangeLanguage">
+        <input type="hidden" name="culture" value='@(currentCulture == "ar" ? "en" : "ar")' />
+        <input type="hidden" name="returnUrl" value="@Context.Request.Path" />
+        <button type="submit" class="btn btn-sm btn-outline-secondary mb-3">
+            @(currentCulture == "ar" ? "EN" : "AR")
+        </button>
+    </form>
+ *@
+    <a asp-action="Login" class="btn btn-primary">@Localizer["Login"]</a>
+</div>

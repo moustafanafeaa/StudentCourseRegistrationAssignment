@@ -1,0 +1,45 @@
+﻿@using StudentCourseRegistrationAssignment.BLL.ViewModels
+@model List<CourseVM>
+
+<h3>Courses Management</h3>
+
+<a asp-action="Create" class="btn btn-primary mb-3">+ Add Course</a>
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        @TempData["Error"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+}
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Credits</th>
+            <th>Semester</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var c in Model)
+        {
+            <tr>
+                <td>@c.Id</td>
+                <td>@c.Name</td>
+                <td>@c.Credits</td>
+                <td>@c.Semester</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@c.Id"
+                       class="btn btn-sm btn-warning">Edit</a>
+
+                    <a asp-action="Delete" asp-route-id="@c.Id"
+                       class="btn btn-sm btn-danger"
+                       onclick="return confirm('Delete this course?')">
+                        Delete
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

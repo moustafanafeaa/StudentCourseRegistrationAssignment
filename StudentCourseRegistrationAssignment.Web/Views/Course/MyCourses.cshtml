@@ -1,0 +1,42 @@
+﻿@using StudentCourseRegistrationAssignment.BLL.ViewModels
+@model List<CourseVM>
+
+<h3>My Courses</h3>
+<div class="mb-3">
+
+    <a asp-action="Index" class="btn btn-secondary">
+        All Courses
+    </a>
+</div>
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">@TempData["Error"]</div>
+}
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Credits</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var c in Model)
+        {
+            <tr>
+                <td>@c.Name</td>
+                <td>@c.Credits</td>
+                <td>
+                    <form asp-action="UnRegister" method="post">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" name="courseId" value="@c.Id" />
+                        <button class="btn btn-sm btn-danger">
+                            Unregister
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
