@@ -88,5 +88,5 @@ This project follows **3-Tier Architecture**:
 
 ### 🔹 Clone the Repository
 ```bash
-git clone https://github.com/your-username/student-course-registration.git
-cd student-course-registration
+git clone https://github.com/moustafanafeaa/StudentCourseRegistrationAssignment.git
+cd StudentCourseRegistrationAssignment
