@@ -26,8 +26,6 @@ A **Student Course Registration System** built with **ASP.NET Core MVC** that al
 - Entity Framework Core
 - SQL Server
 - ASP.NET Identity
-- Bootstrap 5
-- Razor Pages
 
 ---
 
