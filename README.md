@@ -5,8 +5,7 @@ A **Student Course Registration System** built with **ASP.NET Core MVC** that al
 ---
 
 ## Default Admin Credentials
-
-- Use the following credentials to log in as Admin:
+Use the following credentials to log in as Admin:
 - Username: admin
 - password: mmmmmm
 - Role: Admin
@@ -18,7 +17,8 @@ Use the following credentials to log in as Student:
 - Username: moustafa
 - password: mmmmmm
 - Role: student
-- or you can register as a new student 
+  
+ or you can register as a new student 
 
 ## 📌 Features Overview
 
